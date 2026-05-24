@@ -30,7 +30,8 @@ int main() {
             train.getLength();
             opRnd = train.getOpCount();
         }
-        std::cout << n << "\t" << opOff << "\t\t" << opOn << "\t\t" << opRnd << "\n";
+        std::cout << n << "\t" << opOff << "\t\t" 
+                  << opOn << "\t\t" << opRnd << "\n";
     }
     return 0;
 }
