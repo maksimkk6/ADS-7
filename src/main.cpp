@@ -44,7 +44,7 @@ int main() {
       operationsRandom = train.getOpCount();
     }
 
-    std::cout << wagonCount << "\t" << operationsFalse << "\t\t" 
+    std::cout << wagonCount << "\t" << operationsFalse << "\t\t"
               << operationsTrue << "\t\t" << operationsRandom << "\n";
   }
 
