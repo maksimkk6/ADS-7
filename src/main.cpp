@@ -6,34 +6,47 @@
 
 int main() {
   std::srand(time(nullptr));
-  std::cout << "n\tfalse\t\ttrue\t\trndom\n";
-  for (int count = 2; count <= 100; count++) {
-    int emptyResult;
-    int fullResult;
-    int mixedResult;
+
+  std::cout << "n\tfalse\t\ttrue\t\trandom\n";
+
+  for (int wagonCount = 2; wagonCount <= 100; wagonCount++) {
+    int operationsFalse;
+    int operationsTrue;
+    int operationsRandom;
+
     {
       Train train;
-      for (int idx = 0; idx < count; idx++)
+
+      for (int i = 0; i < wagonCount; i++)
         train.addCar(false);
+
       train.getLength();
-      emptyResult = train.getOpCount();
+      operationsFalse = train.getOpCount();
     }
+
     {
       Train train;
-      for (int idx = 0; idx < count; idx++)
+
+      for (int i = 0; i < wagonCount; i++)
         train.addCar(true);
+
       train.getLength();
-      fullResult = train.getOpCount();
+      operationsTrue = train.getOpCount();
     }
+
     {
       Train train;
-      for (int idx = 0; idx < count; idx++)
+
+      for (int i = 0; i < wagonCount; i++)
         train.addCar(std::rand() % 2);
+
       train.getLength();
-      mixedResult = train.getOpCount();
+      operationsRandom = train.getOpCount();
     }
-    std::cout << count << "\t" << emptyResult << "\t\t" << fullResult
-              << "\t\t" << mixedResult << "\n";
+
+    std::cout << wagonCount << "\t" << operationsFalse << "\t\t" 
+              << operationsTrue << "\t\t" << operationsRandom << "\n";
   }
+
   return 0;
 }
