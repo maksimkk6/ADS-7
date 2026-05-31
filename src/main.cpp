@@ -5,33 +5,35 @@
 #include "train.h"
 
 int main() {
-    std::srand(time(nullptr));
-    std::cout << "n\toff\t\ton\t\trnd\n";
-    for (int n = 2; n <= 100; n++) {
-        int opOff, opOn, opRnd;
-        {
-            Train train;
-            for (int i = 0; i < n; i++)
-                train.addCar(false);
-            train.getLength();
-            opOff = train.getOpCount();
-        }
-        {
-            Train train;
-            for (int i = 0; i < n; i++)
-                train.addCar(true);
-            train.getLength();
-            opOn = train.getOpCount();
-        }
-        {
-            Train train;
-            for (int i = 0; i < n; i++)
-                train.addCar(std::rand() % 2);
-            train.getLength();
-            opRnd = train.getOpCount();
-        }
-        std::cout << n << "\t" << opOff << "\t\t"
-                  << opOn << "\t\t" << opRnd << "\n";
+  std::srand(time(nullptr));
+  std::cout << "n\tfalse\t\ttrue\t\trndom\n";
+  for (int count = 2; count <= 100; count++) {
+    int emptyResult;
+    int fullResult;
+    int mixedResult;
+    {
+      Train train;
+      for (int idx = 0; idx < count; idx++)
+        train.addCar(false);
+      train.getLength();
+      emptyResult = train.getOpCount();
     }
-    return 0;
+    {
+      Train train;
+      for (int idx = 0; idx < count; idx++)
+        train.addCar(true);
+      train.getLength();
+      fullResult = train.getOpCount();
+    }
+    {
+      Train train;
+      for (int idx = 0; idx < count; idx++)
+        train.addCar(std::rand() % 2);
+      train.getLength();
+      mixedResult = train.getOpCount();
+    }
+    std::cout << count << "\t" << emptyResult << "\t\t" << fullResult
+              << "\t\t" << mixedResult << "\n";
+  }
+  return 0;
 }
